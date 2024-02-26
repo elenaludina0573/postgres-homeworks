@@ -11,7 +11,7 @@ CREATE TABLE employees
 
 CREATE TABLE customers
 (
-    customer_id char(10) PRIMARY KEY,
+    customer_id char(15) PRIMARY KEY,
 	company_name varchar(100) NOT NULL,
 	contact_name varchar (100) NOT NULL
 );
