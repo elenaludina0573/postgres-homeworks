@@ -8,7 +8,6 @@ conn_params = {
   "user": "postgres",
   "password": "Blev2011!&"
 }
-
 with (psycopg2.connect(**conn_params) as conn):
     with conn.cursor() as cur:
         with open('north_data/employees_data.csv', 'r') as file:
