@@ -15,10 +15,14 @@ SELECT country, COUNT( * ) FROM suppliers GROUP BY country ORDER BY COUNT( * ) D
 SELECT ship_country, SUM(freight)  FROM orders WHERE ship_region IS NOT NULL GROUP BY ship_country HAVING SUM(freight) > 2750
 
 -- 6. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers) и работники (employees).
-SELECT country FROM customers INTERSECT
-SELECT country FROM suppliers INTERSECT
-SELECT country FROM employees ORDER BY country
+SELECT country FROM customers WHERE country IS NOT NULL
+INTERSECT
+SELECT country FROM suppliers WHERE country IS NOT NULL
+INTERSECT
+SELECT country FROM employees WHERE country IS NOT NULL
 -- 7. страны, в которых зарегистрированы и заказчики (customers) и поставщики (suppliers), но не зарегистрированы работники (employees).
-SELECT country FROM customers INTERSECT
-SELECT country FROM suppliers EXCEPT
-SELECT country FROM employees ORDER BY country
+SELECT country FROM customers WHERE country IS NOT NULL
+INTERSECT
+SELECT country FROM suppliers WHERE country IS NOT NULL
+EXCEPT
+SELECT country FROM employees WHERE country IS NOT NULL
